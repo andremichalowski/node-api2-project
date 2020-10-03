@@ -13,6 +13,7 @@ Use `Node.js` and `Express` to build an API that performs _CRUD_ operations on `
 
 ### Project Setup
 
+- Initial commit
 - import this repository into your account
 - clone **your copy** of this repository.
 - **CD into the folder** where you cloned the repository.
@@ -83,6 +84,10 @@ Configure the API to handle to the following routes:
 | DELETE | /api/posts/:id          | Removes the post with the specified id and returns the **deleted post object**. You may need to make additional calls to the database in order to satisfy this requirement. |
 | PUT    | /api/posts/:id          | Updates the post with the specified `id` using data from the `request body`. Returns the modified document, **NOT the original**.                                           |
 
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 #### Endpoint Specifications
 
 When the client makes a `POST` request to `/api/posts`:
@@ -103,6 +108,7 @@ When the client makes a `POST` request to `/api/posts`:
   - cancel the request.
   - respond with HTTP status code `500` (Server Error).
   - return the following JSON object: `{ error: "There was an error while saving the post to the database" }`.
+  
 
 When the client makes a `POST` request to `/api/posts/:id/comments`:
 
@@ -127,6 +133,9 @@ When the client makes a `POST` request to `/api/posts/:id/comments`:
   - cancel the request.
   - respond with HTTP status code `500` (Server Error).
   - return the following JSON object: `{ error: "There was an error while saving the comment to the database" }`.
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 When the client makes a `GET` request to `/api/posts`:
 
@@ -159,17 +168,8 @@ When the client makes a `GET` request to `/api/posts/:id/comments`:
   - respond with HTTP status code `500`.
   - return the following JSON object: `{ error: "The comments information could not be retrieved." }`.
 
-When the client makes a `DELETE` request to `/api/posts/:id`:
 
-- If the _post_ with the specified `id` is not found:
-
-  - return HTTP status code `404` (Not Found).
-  - return the following JSON object: `{ message: "The post with the specified ID does not exist." }`.
-
-- If there's an error in removing the _post_ from the database:
-  - cancel the request.
-  - respond with HTTP status code `500`.
-  - return the following JSON object: `{ error: "The post could not be removed" }`.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 When the client makes a `PUT` request to `/api/posts/:id`:
 
@@ -195,6 +195,24 @@ When the client makes a `PUT` request to `/api/posts/:id`:
   - update the post document in the database using the new information sent in the `request body`.
   - return HTTP status code `200` (OK).
   - return the newly updated _post_.
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+When the client makes a `DELETE` request to `/api/posts/:id`:
+
+- If the _post_ with the specified `id` is not found:
+
+  - return HTTP status code `404` (Not Found).
+  - return the following JSON object: `{ message: "The post with the specified ID does not exist." }`.
+
+- If there's an error in removing the _post_ from the database:
+  - cancel the request.
+  - respond with HTTP status code `500`.
+  - return the following JSON object: `{ error: "The post could not be removed" }`.
+
+
+
 
 ## Stretch Problems
 
